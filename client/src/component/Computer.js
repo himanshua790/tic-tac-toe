@@ -2,48 +2,6 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import Board from "../page-component/Board";
 import Minimax from "../page-component/minimax";
-const styles = {
-  board: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, auto)",
-    width: "306px",
-    margin: "16rem auto 0 auto",
-  },
-  settings_gui: {
-    width: "60%",
-    height: "auto",
-    marginTop: "7rem",
-    marginLeft: "auto",
-    marginRight: "auto",
-    textAlign: "center",
-  },
-  option: {
-    width: "100%",
-    marginBottom: "5px",
-    padding: "5px",
-    backgroundColor: "#322e2f",
-    color: "#e2d810",
-    fontSize: "20px",
-    cursor: "pointer",
-  },
-  option_hover: { opacity: "0.9" },
-  theme_switcher: { position: "absolute", top: "1rem", right: "1rem" },
-  setting_info: {
-    fontSize: "larger",
-    fontWeight: "bold",
-    color: "crimson",
-    fontFamily: '"Maven Pro", sans-serif',
-  },
-  github_link: {
-    position: "absolute",
-    right: "10px",
-    bottom: "10px",
-    letterSpacing: "3px",
-    fontFamily: '"Quicksand", sans-serif',
-    fontSize: "23px",
-    color: "#2b2424",
-  },
-};
 
 function Game() {
   // Functions
