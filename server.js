@@ -11,6 +11,22 @@ const roomData = {};
 const SocketIo = require("./app/controller/socket-driver");
 SocketIo(httpServer, roomData);
 
-httpServer.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+//production mode
+if (process.env.NODE_ENV === "production") {
+  httpServer.use(express.static(path.join(__dirname, "client/build")));
+  httpServer.get("*", (req, res) => {
+    res.sendfile(path.join((__dirname = "client/build/index.html")));
+  });
+} else {
+  //Static file declaration
+  httpServer.use(express.static(path.join(__dirname, "client/build")));
+  //build mode
+  httpServer.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/public/index.html"));
+  });
+}
+
+//start server
+httpServer.listen(port, (req, res) => {
+  console.log(`server listening on port: ${PORT}`);
 });
