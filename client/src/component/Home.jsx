@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { SocketContext } from "../helper/socket";
+import Computer from "./Computer";
 // import GamePad from "./GamePad";
 import JoinMatch from "./JoinMatch";
 import NewGame from "./NewGame";
@@ -51,7 +52,7 @@ const Home = () => {
       ) : (
         <>
           <button onClick={backToHome}>Back To Home</button>
-          <h1>Vs Computer</h1>
+          <Computer />
         </>
       )}
     </div>

@@ -43,7 +43,7 @@ const NewGame = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <button onClick={backToHome}>Back to Home</button>
       {joined && isInRoom ? (
         <GamePad />
