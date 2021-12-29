@@ -274,42 +274,56 @@ const GamePad = () => {
           )}
         </div>
       ) : null}
-      {matrix.map((row, rowIndex) => {
-        return (
-          <div className="RowContainer" key={rowIndex} style={RowContainer}>
-            {row.map((column, columnIndex) => {
-              var Border = {
-                borderRight: columnIndex < 2 ? Cell.borderRight : "",
-                borderLeft: columnIndex > 0 ? Cell.borderLeft : "",
-                borderBottom: rowIndex < 2 ? Cell.borderBottom : "",
-                borderTop: rowIndex > 0 ? Cell.borderTop : "",
-              };
-              return (
-                <div
-                  className="Cell"
-                  key={columnIndex}
-                  style={{ ...Cell, ...Border }}
-                  onClick={() => {
-                    updateGameMatrix(columnIndex, rowIndex, playerSymbol);
-                  }}
-                >
-                  {column && column !== "null" ? (
-                    column === "x" ? (
-                      <div className="X" style={X}>
-                        X
-                      </div>
-                    ) : (
-                      <div className="O" style={O}>
-                        O
-                      </div>
-                    )
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+      <div
+        className="GamePadContainer"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "auto",
+          marginTop: "100px",
+        }}
+      >
+        {matrix.map((row, rowIndex) => {
+          return (
+            // Bittu Yaha Se Dekh
+
+            <div className="RowContainer" key={rowIndex} style={RowContainer}>
+              {row.map((column, columnIndex) => {
+                var Border = {
+                  borderRight: columnIndex < 2 ? Cell.borderRight : "",
+                  borderLeft: columnIndex > 0 ? Cell.borderLeft : "",
+                  borderBottom: rowIndex < 2 ? Cell.borderBottom : "",
+                  borderTop: rowIndex > 0 ? Cell.borderTop : "",
+                };
+                return (
+                  <div
+                    className="Cell"
+                    key={columnIndex}
+                    style={{ ...Cell, ...Border }}
+                    onClick={() => {
+                      updateGameMatrix(columnIndex, rowIndex, playerSymbol);
+                    }}
+                  >
+                    {column && column !== "null" ? (
+                      column === "x" ? (
+                        <div className="X" style={X}>
+                          X
+                        </div>
+                      ) : (
+                        <div className="O" style={O}>
+                          O
+                        </div>
+                      )
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
       {isGameStarted && isPlayerTurn ? (
         <h3>Your Turn</h3>
       ) : (
@@ -319,9 +333,6 @@ const GamePad = () => {
   );
 };
 
-// const PlayerStopper= ({children})=>{
-//   return <div className="PlayerStopper" style={PlayStopperStyle}>{children}</div>
-// }
 const GameContainer = {
   display: "flex",
   flexDirection: "column",
