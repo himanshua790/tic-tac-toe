@@ -3,13 +3,21 @@ export const updateGame = async (socket, gameMatrix) => {
 };
 
 export const onGameUpdate = async (socket, listener, remove = false) => {
-  if (remove) socket.off("ON_GAME_UPDATE", ({ matrix }) => listener(matrix));
-  else socket.on("ON_GAME_UPDATE", ({ matrix }) => listener(matrix));
+  if (remove) {
+    console.log("socket OFF : ON_GAME_UPDATE");
+    socket.off("ON_GAME_UPDATE", ({ matrix }) => listener(matrix));
+  } else {
+    socket.on("ON_GAME_UPDATE", ({ matrix }) => listener(matrix));
+  }
 };
 
 export const onStartGame = async (socket, listener, remove = false) => {
-  if (remove) socket.off("START_GAME", listener);
-  else socket.on("START_GAME", listener);
+  if (remove) {
+    socket.off("START_GAME", listener);
+    console.log("socket OFF : START_GAME");
+  } else {
+    socket.on("START_GAME", listener);
+  }
 };
 
 export const gameWin = async (socket, message) => {
@@ -60,4 +68,3 @@ export const onGameClose = async (socket, listener, remove = false) => {
     });
   }
 };
-

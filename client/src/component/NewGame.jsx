@@ -27,7 +27,10 @@ const NewGame = () => {
     console.log("opponent joined", room);
     console.log("Current ROom is :", roomId.current);
 
-    if (roomId.current === room) setJoined(true);
+    if (roomId.current === room) {
+      setJoined(true);
+      console.log("Opponent join your room");
+    }
   };
 
   useEffect(() => {
