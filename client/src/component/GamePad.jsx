@@ -234,9 +234,6 @@ const GamePad = () => {
 
   return (
     <div className="GameContainer" style={GameContainer}>
-      {!isGameStarted && (
-        <h2>waiting for Other Player to Join to Start the Game</h2>
-      )}
       {!isGameStarted || !isPlayerTurn ? (
         <div className="PlayerStopper" style={PlayStopperStyle}></div>
       ) : null}
