@@ -8,7 +8,7 @@ function Board(props) {
     gridTemplateColumns: "102px 102px 102px",
     gridTemplateRows: "102px 102px 102px",
     width: "306px",
-    margin: "16rem auto 0 auto",
+    margin: "5rem auto 0 auto",
   };
   return (
     <div id="board" style={boardStyle}>
