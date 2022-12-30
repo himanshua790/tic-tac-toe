@@ -1,5 +1,4 @@
 # tic-tac-toe
-Assesment/Task for the postion of Software Developer at LetsEndorse
 
 # HOW TO RUN
 - Install Dependencies on project root folder and client folder
